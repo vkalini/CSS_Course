@@ -1,0 +1,250 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    margin: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+h2 {
+    margin: 2rem;
+    border-radius: .5em;
+    text-align: center;
+    background: darkblue;
+    color: white;
+}
+
+.sun {
+   
+    margin: 3rem auto;
+    background-color: gold;
+    width: 150px;
+    height: 150px;
+    border: 2px solid gold;
+    border-radius: 70px;
+    outline: 2px solid gold;
+    outline-offset: .25rem;
+}
+
+.roof {
+   margin: auto;
+    width: 0;
+    height:0;
+    border-left: 150px solid white;
+    border-right: 150px solid white;
+    border-bottom: 150px solid brown;
+
+}
+
+.house {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+    border: 5px dotted gray;
+}
+
+.grass {
+   margin: 0;
+    width: auto;
+    height: 150px;
+    background-color: green;
+    border: 2px solid green;
+    
+}
+
+
+:root {
+    --main-flower: #517bd6;
+    --nose: #ffc0cb;
+    --stem: #51d691;
+    --pot: #FF7043;
+    --pot-shadow: #d66f51;
+  } */
+
+  :root {
+    --main-flower: #517bd6;
+    --nose: #ffc0cb;
+    --stem: #51d691;
+    --pot: #FF7043;
+    --pot-shadow: #d66f51;
+    --transform-leaves-left: rotate(-283deg) skewX(-12deg)  skewY(-4deg);
+    --transform-leaves-right: rotate(-163deg) skewX(-12deg) skewY(-4deg);
+  }
+
+  .flower {
+    position: relative;
+  }
+
+  .flower__head {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background: var(--main-flower);
+    margin-top: 50px;
+  }
+  
+  .flower__head::after, .flower__head::before {
+    content: '';
+    position: absolute;
+    background: var(--main-flower);
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    transform: rotate(60deg);
+  }
+  
+  .flower__head::before {
+    transform: rotate(-60deg);
+  }
+
+  .flower__eye {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .flower__eye.left {
+    left: 9%;
+  }
+  .flower__eye.right {
+    left: 20%;
+  }
+  .flower__eye span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    margin-top: 5px;
+    background: black;
+    border-radius: 50%;
+  }
+  
+  .flower__nose {
+    position: absolute;
+    left: 17%;
+    transform: translateX(-50%);
+    top: 40%;
+    width: 15px;
+    height: 15px;
+    z-index: 1;
+    background: var(--nose);
+    border-radius: 50%;
+  }
+
+  .flower__stem {
+    position: absolute;
+    height: 155px;
+    width: 8px;
+    background: var(--stem);
+    border-radius: 4px;
+    left: 17%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+
+
+.flower__leaf {
+    width: 30px;
+    height: 30px;
+    background: var(--stem);
+    position: absolute;
+    top: 85px;
+    left: 21px;
+    border-radius: 50px;
+    border-top-right-radius: 0;
+    transform: var(--transform-leaves-left);
+  }
+  .flower__leaf--shadow {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.25);
+    height: 15px;
+    width: 15px;
+    top: 100px;
+    left: 35px;
+    border-radius: 50px;
+    border-top-right-radius: 0;
+    transform: var(--transform-leaves-left);
+  }
+  .flower__leaf--shadow.oposite {
+    top: 100px;
+    left: 70px;
+    transform: var(--transform-leaves-right);
+  }
+  .flower__leaf.oposite {
+    top: 85px;
+    left: 70px;
+    transform: var(--transform-leaves-right);
+  }
+
+  .flower__pot {
+    width: 100px;
+    height: 20px;
+    background-color: var(--pot);
+    position: absolute;
+    top: 190px;
+    left: 17%;
+    transform: translateX(-50%);
+  }
+
+  .flower__pot--shadow {
+    width: 75px;
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid var(--pot-shadow);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .flower__pot--shadow {
+    width: 72px;
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid var(--pot-shadow);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .flower__pot--bottom {
+    width: 50px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 50px solid var(--pot);
+    top: 20px;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      transform: scale(1, 0.05);
+    }
+    5%, 95% {
+      transform: scale(1, 1);
+    }
+  }
+
+  .flower__eye {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    background: #fff;
+    border-radius: 50%;
+    animation: blink 2s infinite; // animation added
+  }
