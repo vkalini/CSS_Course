@@ -246,5 +246,5 @@ h2 {
     z-index: 1;
     background: #fff;
     border-radius: 50%;
-    animation: blink 2s infinite; // animation added
+    animation: blink 2s infinite; /* animation added*/
   }
